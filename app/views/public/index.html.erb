@@ -3,6 +3,10 @@
     <div class="col-sm-12">
       <h2><%= post.title %></h2>
       <%= simple_format post.description %>
+      <div>
+      <span class="badge badge-warning"><%= post.category.title %></span>
+      </div>
     </div>
   </div>
+  <hr/>
 <%end%>
