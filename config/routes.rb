@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :posts
   root 'public#index'
   devise_for :users
