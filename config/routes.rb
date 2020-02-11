@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
-  
+
   scope :admin do
+    resources :categories
     resources :posts
   end
 
