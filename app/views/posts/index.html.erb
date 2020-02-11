@@ -19,7 +19,7 @@
       <tr>
         <td><%= post.category.title %></td>
         <td><%= post.title %></td>
-        <td><%= post.content %></td>
+        <td><%= post.content.to_plain_text[0..30] %></td>
         <td><%= post.published %></td>
         <td><%= post.user.username %></td>
         <td><%= link_to 'Show', post %></td>
