@@ -18,6 +18,7 @@
         </div>
         <div class='menu'>
           <% if user_signed_in? %>
+            <span class="badge text-dark">welcome <%= current_user.username %></span>
             <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
           <% else%>
             <%= link_to "Log In", new_user_session_path %> 
