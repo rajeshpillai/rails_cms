@@ -11,18 +11,29 @@
   </head>
 
   <body>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <div>
-        <% if user_signed_in? %>
-          <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
-        <% else%>
-          <%= link_to "Log In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %>
-        <% end %>
+    <div class="container-fluid">
+      <div class="container">
+        <div class='menu-container'>
+          <div class="logo">
+            <h4>CMS</h4>
+          </div>
+          <div class='menu'>
+            <% if user_signed_in? %>
+              <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
+            <% else%>
+              <%= link_to "Log In", new_user_session_path %> 
+              <%= link_to "Sign Up", new_user_registration_path %>
+            <% end %>
+          </div>
+        </div>
+
+       
       </div>
-      <%= yield %>
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
