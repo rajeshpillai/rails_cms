@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :categories
-  resources :posts
+  
+  scope :admin do
+    resources :posts
+  end
 
   get 'public/category/:category_slug', to: "public#search", :as => :category_search
 
