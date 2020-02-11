@@ -14,9 +14,9 @@
     <div class="container-fluid">
       <div class='menu-container'>
         <div class="logo">
-          <h4>CMS</h4>
+          <h4><%= link_to "CMS", root_path %></h4>
         </div>
-        <div class=''>
+        <div class='menu'>
           <% if user_signed_in? %>
             <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
           <% else%>
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="container-fluid ml-2">
-        <%= link_to "Posts", posts_path  %>
+        <%= link_to "Posts", posts_path  %> |
         <%= link_to "Categories", categories_path  %>
       </div>
       <div class="container">
