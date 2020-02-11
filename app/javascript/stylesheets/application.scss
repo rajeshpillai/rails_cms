@@ -1,9 +1,12 @@
 @import "bootstrap/scss/bootstrap";
 
+.container-fluid {
+  margin:0;
+  padding:0;
+}
 .menu-container {
   color: #fff;
   background-color:lightseagreen ;  /* Blue */
-  padding: 20px 0;
   display: flex;
   justify-content: center;
 }
