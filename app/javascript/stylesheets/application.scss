@@ -17,6 +17,10 @@
 .menu {
   display: flex;
   justify-content: space-around;
+  background: white;
+  height: 90%;
+  align-self: center;
+  margin-right: 5px;
 }
 .menu a {
   margin: 0 10px;
