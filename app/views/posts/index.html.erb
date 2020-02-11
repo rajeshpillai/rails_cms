@@ -2,9 +2,10 @@
 
 <h1>Posts</h1>
 
-<table>
+<table  class="table table-condensed">
   <thead>
     <tr>
+      <th>Category</th>
       <th>Title</th>
       <th>Description</th>
       <th>Published</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.category.title %></td>
         <td><%= post.title %></td>
         <td><%= post.description %></td>
         <td><%= post.published %></td>
