@@ -29,6 +29,7 @@ Category.create(title: "Web Development", description:"All about web development
   category = Category.offset(offset).first
   Post.create(title: "Post " + index.to_s, 
       description: "Post goes here", published: true, 
+      content: "Post goes here",
       category: category, user: user_offset == 1 ? admin_user : admin_user2 )
 end
 
@@ -36,6 +37,9 @@ end
 3.times do |index|
   offset = rand(Category.count)
   category = Category.offset(offset).first
-  Post.create(title: "Post " + index.to_s, description: "Post goes here", published: false, category: category, user: admin_user )
+  Post.create(title: "Post " + index.to_s, 
+      description: "Post goes here", 
+      content: "Post goes here",
+      published: false, category: category, user: admin_user )
 end
 
