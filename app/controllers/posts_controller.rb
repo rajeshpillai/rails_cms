@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_authorization?, only:[:edit, :update, :destroy]
 
+  helper_method :authorize?
+
   # GET /posts
   # GET /posts.json
   def index
@@ -61,6 +63,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def authorize?(post)
+    current_user.id == post.user.id 
   end
 
   private
