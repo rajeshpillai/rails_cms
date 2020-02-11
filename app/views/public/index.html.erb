@@ -7,6 +7,9 @@
         <span class="badge badge-warning">
           <%= link_to post.category.title, category_search_path(post.category.slug) %>
         </span>
+        <span class="float-right">
+          <%= back_link(params) %>
+        </span>
       </div>
     </div>
   </div>
