@@ -8,6 +8,10 @@
 
 Post.destroy_all
 Category.destroy_all
+User.destroy_all
+
+
+admin_user = User.create(email: "admin@cms.xyz",username:"admin",password:"123456",password_confirmation:"123456")
 
 Category.create(title: "Electronics", description:"All about electronics")
 Category.create(title: "Books", description:"All about books")
@@ -19,13 +23,13 @@ Category.create(title: "Web Development", description:"All about web development
 5.times do |index|
   offset = rand(Category.count)
   category = Category.offset(offset).first
-  Post.create(title: "Post " + index.to_s, description: "Post goes here", published: true, category: category )
+  Post.create(title: "Post " + index.to_s, description: "Post goes here", published: true, category: category, user: admin_user )
 end
 
 
 3.times do |index|
   offset = rand(Category.count)
   category = Category.offset(offset).first
-  Post.create(title: "Post " + index.to_s, description: "Post goes here", published: false, category: category )
+  Post.create(title: "Post " + index.to_s, description: "Post goes here", published: false, category: category, user: admin_user )
 end
 
