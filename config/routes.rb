@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   scope :admin do
+    resources :tags
     resources :categories
     resources :posts
   end

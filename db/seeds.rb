@@ -9,6 +9,7 @@
 Post.destroy_all
 Category.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 
 admin_user = User.create(email: "admin@cms.xyz",username:"admin",password:"123456",password_confirmation:"123456")
@@ -20,6 +21,14 @@ Category.create(title: "Books", description:"All about books")
 Category.create(title: "Video Tutorials", description:"Video tutorials")
 Category.create(title: "Programming", description:"All about programming")
 Category.create(title: "Web Development", description:"All about web development")
+
+
+Tag.create(name: "web-development")
+Tag.create(name: "server-side")
+Tag.create(name: "frontend")
+Tag.create(name: "fullstack")
+Tag.create(name: "database")
+Tag.create(name: "javascript")
 
 
 15.times do |index|
