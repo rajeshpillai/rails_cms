@@ -21,6 +21,16 @@ import "bootstrap";
 import "../stylesheets/application";
 
 document.addEventListener("turbolinks:load", () => {
-})
+  // views/posts/_form.html.rb
+  // onChange of tags select, add selected tags to the
+  //    textbox
+  $('#post_tag_ids').change(function (e) {
+    //var selected = $(e.target).val();
+    let selected = $("#post_tag_ids option:selected").toArray().map(item => item.text).join();
+    console.dir(selected);
+    $("#post_all_tags").val(selected);
+  });
+});
+
 require("trix")
 require("@rails/actiontext")
