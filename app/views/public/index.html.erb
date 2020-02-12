@@ -14,5 +14,12 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% post.tags.each do |tag| %>
+        <span class="badge"><%=tag.name%></span>
+      <%end%>
+    </div>
+  </div>
   <hr/>
 <%end%>

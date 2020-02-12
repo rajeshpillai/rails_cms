@@ -9,7 +9,9 @@
 Post.destroy_all
 Category.destroy_all
 User.destroy_all
+Tagging.destroy_all
 Tag.destroy_all
+
 
 
 admin_user = User.create(email: "admin@cms.xyz",username:"admin",password:"123456",password_confirmation:"123456")
@@ -23,12 +25,12 @@ Category.create(title: "Programming", description:"All about programming")
 Category.create(title: "Web Development", description:"All about web development")
 
 
-Tag.create(name: "web-development")
-Tag.create(name: "server-side")
-Tag.create(name: "frontend")
-Tag.create(name: "fullstack")
-Tag.create(name: "database")
-Tag.create(name: "javascript")
+# Tag.create(name: "web-development")
+# Tag.create(name: "server-side")
+# Tag.create(name: "frontend")
+# Tag.create(name: "fullstack")
+# Tag.create(name: "database")
+# Tag.create(name: "javascript")
 
 
 15.times do |index|
@@ -39,6 +41,7 @@ Tag.create(name: "javascript")
   Post.create(title: "Post " + index.to_s, 
       description: "Post goes here", published: true, 
       content: "Post goes here",
+      all_tags: "web-development,programming",
       category: category, user: user_offset == 1 ? admin_user : admin_user2 )
 end
 
@@ -49,6 +52,7 @@ end
   Post.create(title: "Post " + index.to_s, 
       description: "Post goes here", 
       content: "Post goes here",
+      all_tags: "javascript,fullstack",
       published: false, category: category, user: admin_user )
 end
 
