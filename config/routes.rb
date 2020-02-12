@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'public/category/:category_slug', to: "public#search", :as => :category_search
+  get 'public/tags/:tag', to: "public#search", :as => :tag_search
 
   root 'public#index'
   devise_for :users
