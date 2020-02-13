@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.destroy_all
 Post.destroy_all
 Category.destroy_all
 User.destroy_all
@@ -25,24 +26,26 @@ Category.create(title: "Programming", description:"All about programming")
 Category.create(title: "Web Development", description:"All about web development")
 
 
-# Tag.create(name: "web-development")
-# Tag.create(name: "server-side")
-# Tag.create(name: "frontend")
-# Tag.create(name: "fullstack")
-# Tag.create(name: "database")
-# Tag.create(name: "javascript")
-
-
 15.times do |index|
   offset = rand(Category.count)
   user_offset = rand(1..2)
 
   category = Category.offset(offset).first
-  Post.create(title: "Post " + index.to_s, 
+  p = Post.create(title: "Post " + index.to_s, 
       description: "Post goes here", published: true, 
       content: "Post goes here",
       all_tags: "web-development,programming",
       category: category, user: user_offset == 1 ? admin_user : admin_user2 )
+
+  3.times do |comment_index|
+    p.comments.build(title: "Comment #{comment_index}", 
+      content: "Comment content #{comment_index}",
+      user: user_offset == 1 ? admin_user2 : admin_user
+    )
+    p.save
+  end
+  
+  
 end
 
 
