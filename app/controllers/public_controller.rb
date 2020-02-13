@@ -16,4 +16,9 @@ class PublicController < ApplicationController
     end
     render "public/index"
   end
+
+  def read
+    @post = Post.find(params[:post_id])
+    render "public/posts/read"
+  end
 end

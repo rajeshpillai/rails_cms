@@ -1,7 +1,7 @@
 <% @posts.each do |post|  %>
   <div class="row"> 
     <div class="col-sm-12">
-      <h2><%= post.title %></h2>
+      <h2><%= link_to post.title, post_read_path(post) %></h2>
        <div>
         <span class="badge badge-warning">
           <%= link_to post.category.title, category_search_path(post.category.slug) %>

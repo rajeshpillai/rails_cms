@@ -1,0 +1,24 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<%= @post.content %>
+
+<p>
+  <strong>Published:</strong>
+  <%= @post.published %>
+</p>
+
+<div class="row">
+  <div class="col-sm-12">
+    <% @post.tags.each do |tag| %>
+      <span class="badge badge-warning"><%=tag.name%></span>
+    <%end%>
+  </div>
+</div>
+
+<hr/>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
