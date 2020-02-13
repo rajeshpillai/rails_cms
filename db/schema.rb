@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_125453) do
+ActiveRecord::Schema.define(version: 2020_02_13_051429) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2020_02_12_125453) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
-
-
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_02_12_125453) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -53,6 +50,16 @@ ActiveRecord::Schema.define(version: 2020_02_12_125453) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.bigint "replyto_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
