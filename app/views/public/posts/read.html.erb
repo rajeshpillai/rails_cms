@@ -21,10 +21,31 @@
 
 <div class="row mt-3">
   <div class="col-sm-12">
+    <h2>Start Conversation</h2>
+    <%= form_with url: comments_url, local: true, scope: "comment" do |form| %>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <div class="form-group">
+        <label>Title</label>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>What do you want to say?</label>
+        <%= form.text_area :content, class: "form-control" %>
+      </div>
+      <div>
+        <%= form.submit %>
+      <div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row mt-3">
+  <div class="col-sm-12">
     <h2>Conversations</h2>
   </div>
 </div>
-<% @post.comments.each do |comment| %>
+<% @post.comments.order("created_at desc").each do |comment| %>
   <div class="container">
     <div class="row card mb-3 p-2">
       <div class="col-sm-12">
