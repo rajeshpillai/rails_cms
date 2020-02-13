@@ -1,3 +1,4 @@
+<%= link_to 'Back', posts_path %>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -18,7 +19,22 @@
   </div>
 </div>
 
-<hr/>
+<div class="row mt-3">
+  <div class="col-sm-12">
+    <h2>Conversations</h2>
+  </div>
+</div>
+<% @post.comments.each do |comment| %>
+  <div class="container">
+    <div class="row card mb-3 p-2">
+      <div class="col-sm-12">
+        <header class=""><%= comment.title %> </header>
+        <div ><%= comment.content %> </div>
+        <footer class="text-muted mt-2">
+          commented by <%= comment.user.username %> about <%= time_ago_in_words(comment.created_at) %> ago.
+        </footer>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
