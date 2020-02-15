@@ -20,6 +20,9 @@ require("channels")
 import "bootstrap";
 import "../stylesheets/application";
 
+window.jQuery = $;
+window.$ = $;
+
 document.addEventListener("turbolinks:load", () => {
   // views/posts/_form.html.rb
   // onChange of tags select, add selected tags to the
